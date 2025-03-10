@@ -14,7 +14,7 @@ resources:
             .file.content
           else
             null
-          end
+          end 
         ]
       entity:
         mappings:
