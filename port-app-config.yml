@@ -23,6 +23,6 @@ resources:
           identifier: .file.name
           team: .item.ad_group
           relations:
-            project_to_it_object: .item.al_number
+            project_to_it_object: .item.al_number 
           properties: 
             data: .item  
