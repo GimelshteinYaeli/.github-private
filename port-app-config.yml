@@ -13,7 +13,7 @@ resources:
           elif (.file.content | has("al_number")) then 
             .file.content
           else
-            null
+            null 
           end 
         ]
       entity: 
