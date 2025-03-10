@@ -31,4 +31,4 @@ resources:
           relations:
             project_to_it_object: .item.al_number
           properties:
-            data: .item
+            data: .item 
