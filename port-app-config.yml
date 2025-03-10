@@ -19,14 +19,8 @@ resources:
       entity:
         mappings:
           blueprint: '"project_yaml"'
-          title: (.file.name  | split(".")[0]) + "-" + (.repo.name | split("-")[3])
-          identifier: >-
-            def tenant_name: .repo.name | split("-")[0];
-            def cluster_name: .repo.name | split("-")[2];
-            def stage_name: .repo.name | split("-")[3];
-            def project_name: .file.name | split(".")[0];
-
-            tenant_name + "-" + cluster_name + "-" + stage_name + "-" + project_name
+          title: (.file.name  | split(".")[0]) + "-" + .repo.name
+          identifier: .file.name
           team: .item.ad_group
           relations:
             project_to_it_object: .item.al_number
