@@ -17,7 +17,7 @@ resources:
           end 
         ]
       entity: 
-        mappings:
+        mappings: 
           blueprint: '"project_yaml"'
           title: (.file.name  | split(".")[0]) + "-" + .repo.name 
           identifier: .file.name
