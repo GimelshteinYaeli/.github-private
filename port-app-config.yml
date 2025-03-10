@@ -5,7 +5,7 @@ resources:
       files:
         - path: "**.yaml" # Suboptimal, da potentiell andere Dateien als Projekte erfasst werden
     port:
-      itemsToParse: >- 
+      itemsToParse: >-  
         [     
           if .file.content  | has("components") then 
             .file.content.components.terraform | to_entries[] | 
