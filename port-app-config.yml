@@ -30,5 +30,5 @@ resources:
           team: .item.ad_group
           relations:
             project_to_it_object: .item.al_number
-          properties:
+          properties: 
             data: .item 
