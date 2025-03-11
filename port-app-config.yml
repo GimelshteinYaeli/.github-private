@@ -7,7 +7,7 @@ resources:
         - repos:
             - test-repo
     port:
-      itemsToParse: >- 
+      itemsToParse: >-  
         [     
           if .file.content  | has("components") then
             .file.content.components.terraform | to_entries[] |
