@@ -6,7 +6,7 @@ resources:
         - path: "**.yaml" # Suboptimal, da potentiell andere Dateien als Projekte erfasst werden
         - repos:
             - test-repo
-    port:
+    port: 
       itemsToParse: >-  
         [     
           if .file.content  | has("components") then
