@@ -12,7 +12,7 @@ resources:
           if .file.content  | has("components") then
             .file.content.components.terraform | to_entries[] |
             .value.vars.config
-          elif (.data.file.content | has("al_number")) then
+          elif (.file.content | has("al_number")) then
             .file.content
           else
             null
