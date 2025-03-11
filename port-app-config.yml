@@ -1,28 +1,30 @@
-resources:   
-  - kind: file    
-    selector: 
-      query: (.file.content |  has("components")) or (.file.content | has("al_number"))  
+resources:
+  - kind: file
+    selector:
+      query: (.file.content |  has("components")) or (.file.content | has("al_number"))
       files:
-        - path: "**.yaml" # Suboptimal, da potentiell andere Dateien als Projekte erfasst we
+        - path: "**.yaml" # Suboptimal, da potentiell andere Dateien als Projekte erfasst werden
+        - repos:
+            - test-repo
     port:
-      itemsToParse: >-  
+      itemsToParse: >-
         [     
-          if .file.content  | has("components") then  
-            .file.content.components.terraform | to_entries[] | 
+          if .file.content  | has("components") then
+            .file.content.components.terraform | to_entries[] |
             .value.vars.config
-          elif (.file.content | has("al_number")) then 
+          elif (.file.content | has("al_number")) then
             .file.content
           else
-            null  
-          end  
+            null
+          end
         ]
-      entity: 
-        mappings: 
+      entity:
+        mappings:
           blueprint: '"project_yaml"'
-          title: (.file.name  | split(".")[0]) + "-" + .repo.name  
-          identifier: .file.name
+          title: (.file.name  | split(".")[0]) + "-" + .repo.name 
+          identifier: (.file.name  | split(".")[0]) + "-" + .repo.name 
           team: .item.ad_group
           relations:
-            project_to_it_object: .item.al_number 
-          properties: 
-            data: .item  
+            project_to_it_object: .item.al_number
+          properties:
+            data: .item
