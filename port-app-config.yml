@@ -9,14 +9,18 @@ resources:
     port: 
       itemsToParse: >-  
         [     
-          if .file.content  | has("components") then
-            .file.content.components.terraform | to_entries[] |
-            .value.vars.config
-          elif (.file.content | has("al_number")) then
-            .file.content
+          if .file.content | has("components") then
+          (try .file.content.components.terraform catch null) as $terraform |
+          if $terraform != null and ($terraform | type) == "array" then
+            $terraform[] | .vars.config
           else
             null
-          end 
+          end
+                elif (.file.content | has("al_number")) then
+                  .file.content
+                else
+                  null
+                end
         ]
       entity: 
         mappings:
