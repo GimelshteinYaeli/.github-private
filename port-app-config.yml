@@ -1,4 +1,4 @@
-createMissingRelatedEntities: true 
+createMissingRelatedEntities: true  
 resources: 
   - kind: file
     selector:
