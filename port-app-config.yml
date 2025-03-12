@@ -5,7 +5,7 @@ resources:
       files:
         - path: "**.yaml" # Suboptimal, da potentiell andere Dateien als Projekte erfasst werden
         - repos:
-            - test-repo
+            - test-repo 
     port: 
       itemsToParse: >-  
         [     
