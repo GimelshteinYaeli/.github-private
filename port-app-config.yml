@@ -1,4 +1,4 @@
-resources:   
+resources:    
   - kind: file  
     selector:
       query: (.file.content |  has("components")) or (.file.content | has("al_number")) 
